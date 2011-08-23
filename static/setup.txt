@@ -1,0 +1,130 @@
+/**
+* Default TypoScript setup for the extension social2news
+*
+* @author thanks to Rupert Germann <rupi@gmx.li> & Sy Moen http://geekphd.com
+* @package TYPO3
+* @subpackage social2news
+* 
+*/
+
+plugin.tt_news {
+	displaySingle {
+		authorImage_stdWrap.wrap > 
+		authorImage = IMAGE
+		authorImage {
+			wrap = | 
+			file.import = uploads/tx_social2news/
+			file.import.field = image
+			file.import.listNum = 0
+		}
+		authorName_stdWrap.wrap > 
+		authorName= TEXT
+		authorName {
+			field = name
+#			noTrimWrap = |by: ||
+		}
+		authorSocialUser_stdWrap.wrap > 
+		authorSocialUser = TEXT
+		authorSocialUser {
+			field = tx_social2news_twitteruser
+#			noTrimWrap = |by: ||
+		}
+		authorExtUrl_stdWrap.wrap > 
+		authorExtUrl = TEXT
+		authorExtUrl {
+			field = tx_social2news_twitteruser
+			wrap = <a href="http://twitter.com/|" class="tweet-screen-name user-profile-link">
+		}
+		authorIntUrl_stdWrap.wrap > 
+		authorIntUrl = TEXT
+		authorIntUrl {
+			field = tx_social2news_twitteruser
+			ifEmpty.field = username
+			typolink.parameter = {$fe_user.profilePid} _self
+			typolink.additionalParams.field = username
+			typolink.additionalParams.wrap = &username=|
+			
+		}
+	}
+	displayLatest {
+		authorImage_stdWrap.wrap > 
+#		authorImage = IMAGE
+#		authorImage {
+#			wrap = | 
+#			file.import = uploads/tx_social2news/
+#			file.import.field = image
+#			file.import.listNum = 0
+#		}
+		authorImage = TEXT
+		authorImage {
+			field = image
+			wrap = uploads/tx_social2news/|
+		}
+		authorName_stdWrap.wrap > 
+		authorName= TEXT
+		authorName {
+			field = name
+#			noTrimWrap = |by: ||
+		}
+		authorSocialUser_stdWrap.wrap > 
+		authorSocialUser = TEXT
+		authorSocialUser {
+			field = tx_social2news_twitteruser
+#			noTrimWrap = |by: ||
+		}
+		authorExtUrl_stdWrap.wrap > 
+		authorExtUrl = TEXT
+		authorExtUrl {
+			field = tx_social2news_twitteruser
+			wrap = <a href="http://twitter.com/|" class="tweet-screen-name user-profile-link">
+		}
+		authorIntUrl_stdWrap.wrap > 
+		authorIntUrl = TEXT
+		authorIntUrl {
+			field = tx_social2news_twitteruser
+			ifEmpty.field = username
+			typolink.parameter = {$fe_user.profilePid} _self
+			typolink.additionalParams.field = username
+			typolink.additionalParams.wrap = &username=|
+			
+		}
+	}
+	displayList {
+		authorImage_stdWrap.wrap > 
+		authorImage = IMAGE
+		authorImage {
+			wrap = | 
+			file.import = uploads/tx_social2news/
+			file.import.field = image
+			file.import.listNum = 0
+		}
+		authorName_stdWrap.wrap > 
+		authorName= TEXT
+		authorName {
+			field = name
+#			noTrimWrap = |by: ||
+		}
+		authorSocialUser_stdWrap.wrap > 
+		authorSocialUser = TEXT
+		authorSocialUser {
+			field = tx_social2news_twitteruser
+#			noTrimWrap = |by: ||
+		}
+		authorExtUrl_stdWrap.wrap > 
+		authorExtUrl = TEXT
+		authorExtUrl {
+			field = tx_social2news_twitteruser
+			wrap = <a href="http://twitter.com/|" class="tweet-screen-name user-profile-link">
+		}
+		authorIntUrl_stdWrap.wrap > 
+		authorIntUrl = TEXT
+		authorIntUrl {
+			field = tx_social2news_twitteruser
+			ifEmpty.field = username
+			typolink.parameter = {$fe_user.profilePid} _self
+			typolink.additionalParams.field = username
+			typolink.additionalParams.wrap = &username=|
+			
+		}
+	}
+}

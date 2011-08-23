@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'social2news'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tt_news.tx_social2news_external">External Unique ID</label>
+			<label index="tt_news.tx_social2news_external_source">External Source</label>
+			<label index="fe_users.tx_social2news_twitteruser">Twitter Username</label>
+			<label index="fe_users.tx_social2news_twitteruid">Twitter Uid</label>
+			<label index="fe_users.tx_social2news_yahoouser">Yahoo Username</label>
+			<label index="fe_users.tx_social2news_yahoouid">Yahoo Login Email</label>
+			<label index="fe_users.tx_social2news_facebookuser">Facebook Username</label>
+			<label index="fe_users.tx_social2news_facebookuid">Facebook Uid</label>
+		</languageKey>
+	</data>
+</T3locallang>

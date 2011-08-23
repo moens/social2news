@@ -1,0 +1,18 @@
+
+  # cat=basic//10; type=options[group,select]; label= Type of the relation field: Here you can choose the type of the new field. Type "group" is a single field where the related record is choosen with the "Element Browser" (like "related news" in tt_news). Type "select" will display a "two-field" selector where the right field shows the available items and the left one show the selected items (like the "Include static" selector in the TS-template record).
+fieldType = select
+    
+  # cat=basic/enable/10; type=boolean; label= Use StoragePid for author records: Only when "fieldType" is "select" (a "group" field shows always the complete pagetree). Use the globally configured "general record storage page" (aka: "GRSP" or "StoragePid") for author records if "fieldType" is "select". If this is disabled, author records from the completed database will be displayed. EXCEPTIONS: If the selected table is "be_users" the storagePid will be the rootpage (pid=0) and if a value for "StoragePid" (below) is set, the values of "useStoragePid" will be ignored.
+useStoragePid = 1
+
+  # cat=basic/enable/20; type=int; label= StoragePid for authors records: (Only when type is "select") If you don't want to use the globally configured "general record storage page" (GRSP) for author records, you can type the pid of the page with those records here. If "StoragePid" contains a value "useStoragePid" will be ignored. EXCEPTION: If the selected table is "be_users" the storagePid will be the rootpage (pid=0) and the value of "StoragePid" will be ignored.
+StoragePid = 
+
+  # cat=basic/enable/30; type=options[DO NOT replace author field (add new field before it)=0,REPLACE author field=1,add new field at the end of the FIRST tab of the tt_news editform=2,add new field at the END of the tt_news editform=3]; label= Position of the author field: Here you can choose, if the new "author relation" field should replace the "author" field from tt_news. If this is not wanted you can configure 3 positions for the new field: 1. above the original author field, 2. at the end of the first tab of the tt_news editform and 3. at the end of the tt_news editform (useful if you want use the related field for something else than author records).
+replace_author_field = 1
+
+  # cat=basic//70; type=int [2-40]; label= Height of the relation field: The height (in lines) of the new author relation field in the tt_news form can be configured here.
+fieldHeight = 3
+
+# cat=basic/enable/100; type=boolean; label=Debug: Check to turn on debugging to the Dev Log. Debugging also takes place if TYPO3_DLOG is true. Requires devlog or similar extension.
+debug = 0
