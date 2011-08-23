@@ -347,7 +347,12 @@ class tx_social2news_controller_transforms {
 									case 'uploadImage':
 										$record = $record + $image;
 										$filename = $this->uploadImage($record, 'url', $params);
-										return $filename;
+										// tt_news images dir is hardcoded to uploads/pics...
+										$copied = t3lib_div::upload_copy_move(PATH_site . "uploads/tx_" . $this->extKey  . "/" . $filename, PATH_site . "uploads/pics/" . $filename);	
+										if($copied) {
+											@unlink(PATH_site . "uploads/tx_" . $this->extKey  . "/" . $filename);
+											return $filename;
+										else return NULL;
 									case 'imageCaption':
 										return $image['imageCaption'];
 									case 'titleText':
