@@ -148,7 +148,7 @@ class tx_social2news_controller_transforms {
 	 * @param	array	$record: the that is being transformed
 	 * @param	string	$index: the index of the field to transform
 	 * @param	array	$params: additional parameters from the TCA
-	 * @return	int	pubDate (or 'now' if error) converted to timestamp 
+	 * @return	string	string with all urls stripped out 
 	 */
 	public function scrubUrls($record, $index, $params) {
 		$this->urlTools->setOrigText($record[$index]);
@@ -354,6 +354,7 @@ class tx_social2news_controller_transforms {
 										if($copied) {
 											@unlink(PATH_site . "uploads/tx_" . $this->extKey  . "/" . $filename);
 											return $filename;
+										}
 										else return NULL;
 									case 'imageCaption':
 										return $image['imageCaption'];
