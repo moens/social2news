@@ -23,6 +23,11 @@ plugin.tt_news {
 			field = name
 #			noTrimWrap = |by: ||
 		}
+		authorPostId_stdWrap.wrap > 
+		authorPostId= TEXT
+		authorPostId {
+			field =  tx_social2news_external 
+		}
 		authorSocialUser_stdWrap.wrap > 
 		authorSocialUser = TEXT
 		authorSocialUser {
@@ -66,6 +71,11 @@ plugin.tt_news {
 			field = name
 #			noTrimWrap = |by: ||
 		}
+		authorPostId_stdWrap.wrap > 
+		authorPostId= TEXT
+		authorPostId {
+			field =  tx_social2news_external 
+		}
 		authorSocialUser_stdWrap.wrap > 
 		authorSocialUser = TEXT
 		authorSocialUser {
@@ -103,6 +113,11 @@ plugin.tt_news {
 		authorName {
 			field = name
 #			noTrimWrap = |by: ||
+		}
+		authorPostId_stdWrap.wrap > 
+		authorPostId= TEXT
+		authorPostId {
+			field =  tx_social2news_external 
 		}
 		authorSocialUser_stdWrap.wrap > 
 		authorSocialUser = TEXT

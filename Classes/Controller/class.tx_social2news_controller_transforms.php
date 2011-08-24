@@ -128,12 +128,14 @@ class tx_social2news_controller_transforms {
 						$tweetArray[] = $wordStr;
 					} else $tweetArray[] = $word;
 				}
-				$twitterControls = '<div class="twitter-controls">' . "\n" .
+/*				$twitterControls = '<div class="twitter-controls">' . "\n" .
 							'<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>' . "\n" .
 							'<p><a href="https://twitter.com/intent/tweet?in_reply_to=' . $record['id_str'] . '">Reply</a></p>' . "\n" .
 							'<p><a href="https://twitter.com/intent/retweet?tweet_id=' . $record['id_str'] . '">Retweet</a></p>' . "\n" .
 							'<p><a href="https://twitter.com/intent/favorite?tweet_id=' . $record['id_str'] . '">Favorite</a></p></div>' . "\n";
-				return implode(' ', $tweetArray) . $twitterControls;
+				return implode(' ', $tweetArray) . $twitterControls; */
+				return implode(' ', $tweetArray);
+
 			case 'facebook':
 			case 'flickr':
 			default:

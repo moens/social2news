@@ -55,6 +55,7 @@ class tx_social2news_adapter_extraMarkers {
 			$markerNames = array(
 				'name'		=> '###AUTHOR_NAME###',
 				'socialUser'	=> '###AUTHOR_SOCIAL_USERNAME###',
+				'socialPostId'	=> '###SOCIAL_POST_ID###',
 				'image'		=> '###AUTHOR_IMAGE###',
 				'extUrl'	=> '###AUTHOR_EXT_URL###',
 				'intUrl'	=> '###AUTHOR_INT_URL###'
@@ -70,11 +71,14 @@ class tx_social2news_adapter_extraMarkers {
 			// get the foreign row that each author id refers to
 			$tmprow = $pObj->pi_getRecord($authortable, $authorUid);
 			if (is_array($tmprow)) {
+				// insert the current post external id for link construction and whatnot
+				$tmprow['tx_social2news_external'] = $row['tx_social2news_external'];
 				// take the row and construct the tslib_cObj with it, so that we can work on it with TS (stdWarp and all that)
 				$local_cObj->start($tmprow, '');
 				// based on the loaded row, render a linked author name for each $authors
 				$markerArray[$markerNames['name']]	= $local_cObj->stdWrap($local_cObj->cObjGetSingle($lConf['authorName'], $lConf['authorName.'], 's2n_authorName'),$lConf['authorName_stdWrap.']);
 				$markerArray[$markerNames['socialUser']]	= $local_cObj->stdWrap($local_cObj->cObjGetSingle($lConf['authorSocialUser'], $lConf['authorSocialUser.'], 's2n_authorSocialUser'),$lConf['authorSocialUser_stdWrap.']);
+				$markerArray[$markerNames['socialPostId']]	= $local_cObj->stdWrap($local_cObj->cObjGetSingle($lConf['authorPostId'], $lConf['authorPostId.'], 's2n_authorPostId'),$lConf['authorPostId_stdWrap.']);
 				$markerArray[$markerNames['image']]	= $local_cObj->stdWrap($local_cObj->cObjGetSingle($lConf['authorImage'], $lConf['authorImage.'], 's2n_authorImage'),$lConf['authorImage_stdWrap.']);
 				$markerArray[$markerNames['extUrl']]	= $local_cObj->stdWrap($local_cObj->cObjGetSingle($lConf['authorExtUrl'], $lConf['authorExtUrl.'], 's2n_authorExtUrl'),$lConf['authorExtUrl_stdWrap.']); 
 				$markerArray[$markerNames['intUrl']]	= $local_cObj->stdWrap($local_cObj->cObjGetSingle($lConf['authorIntUrl'], $lConf['authorIntUrl.'], 's2n_authorIntUrl'),$lConf['authorIntUrl_stdWrap.']); 
