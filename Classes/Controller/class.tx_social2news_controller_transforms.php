@@ -165,8 +165,12 @@ class tx_social2news_controller_transforms {
 	 * @return	int	pubDate (or 'now' if error) converted to timestamp 
 	 */
 	public function date2ts($record, $index, $params) {
-		if(strtotime($record[$index])) return strtotime($record[$index]);
-		else return strtotime('now');
+		// I guess TYPO3 attempts to change the tstamp you give it to a UTC tstamp based on your timezone...
+		// but I am giving it a UTC date, so TYPO3 screws up this date unless you are at UTC... heh
+		// so, here I am "correcting" the timestamp to the timezone so that TYPO3 can correct it back. O_o
+		$offsetCorrection = date_offset_get(new DateTime);
+		if(strtotime($record[$index])) return strtotime($record[$index]) + $offsetCorrection;
+		else return time();
 	}
 
 	/**
