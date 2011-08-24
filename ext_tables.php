@@ -431,11 +431,15 @@ $TCA['tt_news']['columns']['datetime']['external'] = array(
 		)
 	)
 );
+/* This gives spurius results! Most of the time I get my logged in BE user...
+ * some times I get this value in the records, but if I do, it sets the created 
+ * tt_news item to hidden regardless of the "hidden" entry elsewhere in this file
 $TCA['tt_news']['columns']['cruser_id']['external'] = array(
 	0 => array(
 		'value' => '3', // this just happens to be the uid of the _cli_scheduler user in this installation... probably change this... not sure if it matters
 	)
 );
+*/
 $TCA['tt_news']['columns']['author']['external'] = array(
 	0 => array(
 		'field' => 'from_user'
